@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Thymeleaf</title>
+</head>
+<body>
+    <th:block th:if="${age} <= 29" >
+        <span style="display:block;">Tuổi trẻ tài cao</span>
+    </th:block>
+    <th:block th:unless="${age} > 29" >
+        <span style="display:block;">Tuổi trẻ tài cao quá</span>
+    </th:block>
+    <th:block  >
+        <span style="display:block;" th:text="${age} > 29 ? 'Bạn quá già' : 'Bạn quá trẻ'">Tuổi trẻ tài cao quá</span>
+    </th:block>
+    <table border="1">
+        <tr th:each="flower: ${flowers}">
+         <td th:text="${flower}"></td>
+         </tr>
+    </table>
+    <table border="1">
+         <tr th:each="flower,state: ${flowers}">
+             <td th:text="${state.index}"></td>
+             <td th:text="${flower}"></td>
+         </tr>
+    </table>
+        <th:block th:switch="${dow}">
+             <span th:case="2">thứ 2</span>
+             <span th:case="3">thứ 3</span>
+             <span th:case="4">thứ 4</span>
+             <span th:case="5">thứ 5</span>
+             <span th:case="6">thứ 6</span>
+             <span th:case="7">thứ 7</span>
+             <span th:case="*">chủ nhật</span>
+        </th:block>
+        <!--<p class="default-class" th:classappend="${isAdmin} ? admin-class : user-class " >-->
+        <!--    Some Text 1-->
+        <!--</p>-->
+        <!--<p th:style ="${isAmin} ? 'font-style: bold;' : 'font-style: italic;'">-->
+        <!--    Some Text 1-->
+        <!--</p>-->
+        <p style ="font-weight: bold;" th:styleappend ="${isAdmin} ? 'color: blue' : 'color: black'">
+            Some Text 1
+        </p>
+    <div th:replace = "fragments ::footer"></div>
+<!--      <div th:replace = "~{/fragments/template :: fragment}"></div>-->
+</body>
+
+</html>

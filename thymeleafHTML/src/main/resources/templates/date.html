@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>date</title>
+</head>
+<body>
+<!--<h2>Now is <span th:text="${date}"></span></h2>-->
+<ul th:object="${profile}">
+    <!-- th:object tồn tại trong phạm vi của thẻ div này -->
+    <li>Họ tên: <span th:text="*{FullName}"></span></li>
+    <li>Email: <span th:text="*{Email}"></span></li>
+    <h1 id=“head”>This is a h1 tag</h1>
+    <p th:fragment=“footer”>This is a paragraph.</p>
+</ul>
+
+</body>
+</html>
