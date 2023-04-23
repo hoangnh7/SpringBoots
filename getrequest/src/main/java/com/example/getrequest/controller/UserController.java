@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/users")
@@ -37,7 +38,7 @@ public class UserController {
     }
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable int  id){
-        List<UserDto> result = userService.getById(id);
+        UserDto result = userService.getById(id);
         return ResponseEntity.ok(result);
     }
 //    @PostMapping("")
@@ -50,10 +51,10 @@ public class UserController {
         return ResponseEntity.ok(result);
 
     }
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteUser(@PathVariable int id){
-        userService.deleteUser(id);
-        return ResponseEntity.ok("DELETED USER");
-
-    }
+//    @DeleteMapping("/{id}")
+//    public ResponseEntity<?> deleteUser(@PathVariable int id){
+//        userService.deleteUser(id);
+//        return ResponseEntity.ok("DELETED USER");
+//
+//    }
 }

@@ -11,9 +11,9 @@ import java.util.List;
 @Service
 public interface UserService {
     public List<UserDto> getListUser();
-    public List<UserDto> getById( int id);
+    public UserDto getById( int id);
     public List<UserDto> searchByName(String keyword);
     public UserDto createUser(CreateUserReq req);
     public UserDto updateUser(UpdateUserReq req, int id);
-    public boolean deleteUser(int id);
+    public void deleteUser(int id);
 }
