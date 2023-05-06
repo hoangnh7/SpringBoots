@@ -93,6 +93,10 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserDto updateUser(UpdateUserReq req, int id) {
         // KIEEMR TRA USER DA TON TAI
+        User rs = userRepository.getUserInfo(id);
+        if (rs!=null){
+            throw new NotFoundException("User is existed");
+        }
         Optional<User> result = userRepository.findById(id);
         if (result.isEmpty()){
             throw new NotFoundException("No User found");
